@@ -64,7 +64,8 @@ class AnyHandler {
 
   customValidator() {
     if(this.objectDetails.validators) {
-      const validator = Object.values(this.objectDetails.validators).find(
+      let values = Object.keys(this.objectDetails.validators).map((k) => this.objectDetails.validators[k]);
+      const validator = values.find(
         validator => validator.type === 'user defined'
       );
 
